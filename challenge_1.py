@@ -76,12 +76,13 @@ class Graph:
     def add_edge(self, key1, key2, weight=0):
         """add an edge from vertex with key `key1` to vertex with key `key2` with a weight."""
         # if either vertex is not in the graph,
-        if 
-        # add it - or return an error (choice is up to you).
-        # TODO if both vertices in the graph, add the
+        if key1 not in self.vertList:
+            self.add_vertex(key1)
+        if key2 not in self.vertList:
+            self.add_vertex(key2)
+        # if both vertices in the graph, add the
         # edge by making key1 a neighbor of key2
-        # and using the addNeighbor method of the Vertex class.
-        # Hint: the vertex key1 is stored in self.vertList[f].
+        self.vertList[key1].add_neighbor(self.vertList[key2], weight)
 
     def get_vertices(self):
         """return all the vertices in the graph"""
@@ -120,27 +121,30 @@ if __name__ == "__main__":
     print("The edges are: ")
     for v in g:
         for w in v.get_neighbors():
-            print("( %s , %s )" % (v.getId(), w.getId()))
-            
-content = open("graph_data.txt")
-content = (list(content))
+            print("( %s , %s )" % (v.get_id(), w.get_id()))
 
-# import graph
-graph = content[0]
-print(graph)
 
-# import vertices
-vstring = content[1]
-# split vertices by comma
-# create array of nodes
-vertices = [Vertex(vertix) for vertix in vstring.split(',')]
-print(vertices)
+# OLD TEST CODE
 
-# import edges
-estring = content[2:]
-# take away annoying \n
-edges = [edge.strip() for edge in estring]
-# convert list of string edges to an array of tuples
-# https://stackoverflow.com/questions/25023018/convert-a-string-tuple-to-a-tuple
-edges = [ast.literal_eval(edge) for edge in edges]
-print(edges)
+# content = open("graph_data.txt")
+# content = (list(content))
+
+# # import graph
+# graph = content[0]
+# print(graph)
+
+# # import vertices
+# vstring = content[1]
+# # split vertices by comma
+# # create array of nodes
+# vertices = [Vertex(vertix) for vertix in vstring.split(',')]
+# print(vertices)
+
+# # import edges
+# estring = content[2:]
+# # take away annoying \n
+# edges = [edge.strip() for edge in estring]
+# # convert list of string edges to an array of tuples
+# # https://stackoverflow.com/questions/25023018/convert-a-string-tuple-to-a-tuple
+# edges = [ast.literal_eval(edge) for edge in edges]
+# print(edges)
