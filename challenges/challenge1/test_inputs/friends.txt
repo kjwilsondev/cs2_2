@@ -1,0 +1,13 @@
+G
+Abe,Kyle,Max,Kennis,Emilio,Mike,Hunter
+(Abe,Kyle,4)
+(Abe,Max,4)
+(Abe,Kennis,4)
+(Kyle,Max,5)
+(Kyle,Kennis,2)
+(Max,Kennis,2)
+(Kennis,Emilio,2)
+(Kennis,Mike,2)
+(Emilio,Mike,3)
+(Emilio,Hunter,4)
+(Mike,Hunter,2)
